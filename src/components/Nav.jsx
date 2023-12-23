@@ -44,7 +44,7 @@ const Navbar = () => {
               <Typography  variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 Countdown
               </Typography>
-              <MenuItem component={Link} to="/countdown-timer/countdown-timer" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
+              <MenuItem component={Link} to="/countdown-timer" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
                 Home
               </MenuItem>
               <MenuItem component={Link} to="/countdown-timer/christmas" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
