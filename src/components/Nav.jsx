@@ -44,13 +44,13 @@ const Navbar = () => {
               <Typography  variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 Countdown
               </Typography>
-              <MenuItem component={Link} to="/countdown-timer" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
+              <MenuItem component={Link} to="/countdown-timer/countdown-timer" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
                 Home
               </MenuItem>
-              <MenuItem component={Link} to="/christmas" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
+              <MenuItem component={Link} to="/countdown-timer/christmas" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
                 Christmas
               </MenuItem>
-              <MenuItem component={Link} to="/newyear" onClick={handleDrawerClose}>
+              <MenuItem component={Link} to="/countdown-timer/newyear" onClick={handleDrawerClose}>
                 New Year
               </MenuItem>
             </>
@@ -65,14 +65,14 @@ const Navbar = () => {
               </ListItemIcon>
               <ListItemText primary="Home" />
             </ListItem>
-            <ListItem button component={Link} to="/christmas" onClick={handleDrawerClose}>
+            <ListItem button component={Link} to="/countdown-timer/christmas" onClick={handleDrawerClose}>
               <ListItemIcon>
                 <CardGiftcardIcon />
               </ListItemIcon>
               <ListItemText primary="Christmas" />
             </ListItem>
             <Divider />
-            <ListItem button component={Link} to="/newyear" onClick={handleDrawerClose}>
+            <ListItem button component={Link} to="/countdown-timer/newyear" onClick={handleDrawerClose}>
               <ListItemIcon>
                 <CalendarMonthIcon />
               </ListItemIcon>

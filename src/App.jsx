@@ -13,8 +13,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/countdown-timer" element={<Home />} />
-          <Route path="/christmas" element={<Christmas />} />
-          <Route path="/newyear" element={<NewYear />} />
+          <Route path="/countdown-timer/christmas" element={<Christmas />} />
+          <Route path="/countdown-timer/newyear" element={<NewYear />} />
           
         </Routes>
 
