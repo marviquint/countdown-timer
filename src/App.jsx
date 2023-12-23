@@ -12,7 +12,7 @@ function App() {
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/countdown-timer" element={<Home />} />
           <Route path="/christmas" element={<Christmas />} />
           <Route path="/newyear" element={<NewYear />} />
           

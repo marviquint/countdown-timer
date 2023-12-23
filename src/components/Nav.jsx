@@ -44,7 +44,7 @@ const Navbar = () => {
               <Typography  variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 Countdown
               </Typography>
-              <MenuItem component={Link} to="/" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
+              <MenuItem component={Link} to="/countdown-timer" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
                 Home
               </MenuItem>
               <MenuItem component={Link} to="/christmas" sx={{ marginRight: 2 }} onClick={handleDrawerClose}>
@@ -59,7 +59,7 @@ const Navbar = () => {
         {/* Drawer for mobile devices */}
         <Drawer anchor="right" open={mobileDrawerOpen} onClose={handleDrawerClose} sx={{ width: '240px' }}>
           <List>
-            <ListItem button component={Link} to="/" onClick={handleDrawerClose}>
+            <ListItem button component={Link} to="/countdown-timer" onClick={handleDrawerClose}>
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>
