@@ -1,0 +1,19 @@
+.NewYearCountdownContainer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.FireworksBackground {
+  background-color: black;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
