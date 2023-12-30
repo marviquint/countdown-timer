@@ -102,26 +102,30 @@ const ChristmasCountdown = () => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const timeRemaining = christmasDateRef.current - now;
+  // Inside your component function
+    const [timeRemaining, setTimeRemaining] = useState(christmasDateRef.current - new Date().getTime());
 
-      if (timeRemaining > 0) {
-        setDays(Math.floor(timeRemaining / (1000 * 60 * 60 * 24)));
-        setHours(Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-        setMinutes(Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60)));
-        setSeconds(Math.floor((timeRemaining % (1000 * 60)) / 1000));
-      } else {
-        // If Christmas has passed, calculate time remaining for next Christmas
-        const nextChristmasYear = currentYear + 1;
-        christmasDateRef.current = new Date(`December 25, ${nextChristmasYear} 00:00:00`).getTime();
-      }
-    }, 1000);
+    // Inside the useEffect hook
+    useEffect(() => {
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const remaining = christmasDateRef.current - now;
 
-    return () => clearInterval(interval);
-  }, [currentYear]);
+        if (remaining > 0) {
+          setTimeRemaining(remaining);
+          setDays(Math.floor(remaining / (1000 * 60 * 60 * 24)));
+          setHours(Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+          setMinutes(Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60)));
+          setSeconds(Math.floor((remaining % (1000 * 60)) / 1000));
+        } else {
+          const nextChristmasYear = currentYear + 1;
+          christmasDateRef.current = new Date(`December 25, ${nextChristmasYear} 00:00:00`).getTime();
+          setTimeRemaining(christmasDateRef.current - now);
+        }
+      }, 1000);
 
+      return () => clearInterval(interval);
+    }, [currentYear]);
 
   return (
     <div className="BackgroundImage">
@@ -161,10 +165,12 @@ const ChristmasCountdown = () => {
         </ChristmasCountdownWrapper>
 
         <ChristmasText>
-          {days === 0 && hours === 0 && minutes === 0 && seconds === 0
+          { timeRemaining > 0
             ? `Until Christmas ${currentYear + 1}`
-            : `Until Christmas ${currentYear}`}
+            : `Until Christmas ${currentYear + 1}`}
         </ChristmasText>
+
+
       </ChristmasCountdownContainer>
     </div>
   );
